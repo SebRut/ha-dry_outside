@@ -7,16 +7,16 @@ from .const import (
     DEFAULT_NAME,
     DOMAIN,
 )
-from .entity import IntegrationBlueprintEntity
+from .entity import DryOutsideEntity
 
 
 async def async_setup_entry(hass, entry, async_add_devices):
     """Setup binary_sensor platform."""
     coordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_devices([IntegrationBlueprintBinarySensor(coordinator, entry)])
+    async_add_devices([DryOutsideBinarySensor(coordinator, entry)])
 
 
-class IntegrationBlueprintBinarySensor(IntegrationBlueprintEntity, BinarySensorEntity):
+class DryOutsideBinarySensor(DryOutsideEntity, BinarySensorEntity):
     """integration_blueprint binary_sensor class."""
 
     @property
